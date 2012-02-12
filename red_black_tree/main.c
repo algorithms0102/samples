@@ -2,8 +2,6 @@
 //  main.c
 //  rb_tree
 //
-//  Created by chenjincai on 2/11/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #include <stdio.h>
