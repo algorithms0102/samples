@@ -2,13 +2,16 @@
  * File Name:strstr.c
  * Description:
  * Create Date:13-02-2012
- * Last Modified:Mon 13 Feb 2012 03:04:37 PM CST
+ * Last Modified:Mon Feb 13 20:58:20 2012
  *
  */
 
 #include <stdio.h>
 #include <string.h>
-
+/**
+ * brute force version
+ * it takes O(n * m) time
+ */
 int strstr_bf(const char *string, const char *substring) {
     //string and substring are not allowed to be empty
     if (string == NULL || substring == NULL) {
