@@ -2,8 +2,7 @@
  * File Name:dlist.c
  * Description:
  * Create Date:02-11-2011
- * Last Modified:Sat Nov  5 15:53:07 2011
- * Author:7655cjc@gmail.com
+ * Last Modified:Wed Feb 15 22:19:51 2012
  *
  */
 

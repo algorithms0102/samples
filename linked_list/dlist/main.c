@@ -2,8 +2,7 @@
  * File Name:main.c
  * Description:
  * Create Date:05-11-2011
- * Last Modified:Sat Nov  5 14:01:40 2011
- * Author:7655cjc@gmail.com
+ * Last Modified:Wed Feb 15 22:19:37 2012
  *
  */
 

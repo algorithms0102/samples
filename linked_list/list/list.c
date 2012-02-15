@@ -2,8 +2,7 @@
  * File Name:list.c
  * Description:
  * Create Date:02-11-2011
- * Last Modified:Thu Nov  3 09:02:22 2011
- * Author:7655cjc@gmail.com
+ * Last Modified:Wed Feb 15 22:19:05 2012
  *
  */
 
