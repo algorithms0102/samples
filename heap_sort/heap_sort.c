@@ -37,6 +37,10 @@ void build_min_heap(int heap[], int heap_size);
 void build_max_heap(int heap[], int heap_size);
 void heap_sort_asc(int heap[], int heap_size);
 void heap_sort_desc(int heap[], int heap_size);
+int heap_maximum(int heap[]);
+int heap_minimum(int heap[]);
+int heap_extract_max(int heap[], int heap_size);
+int heap_extract_min(int heap[], int heap_size);
 /**
  * given a node with index i, return the index of its parent
  */
@@ -171,6 +175,45 @@ void heap_sort_asc(int heap[], int heap_size) {
         max_heapify(heap, 0, --heap_size);
     }
 }
+/**
+ * on a min-heap
+ */
+int heap_minimum(int heap[]) {
+    return heap[0];
+}
+/**
+ * on a max-heap
+ */
+int heap_maximum(int heap[]) {
+    return heap[0];
+}
+/**
+ * extract the max elemnt in the heap
+ * runs in O(lg n) time
+ */
+int heap_extract_max(int heap[], int heap_size) {
+    if (heap_size < 1) {
+        printf("error: heap underflow");
+    }
+    int max = heap[0];
+    heap[0] = heap[heap_size - 1];
+    heap_size = heap_size - 1;
+    max_heapify(heap, 0, heap_size);
+    return max;
+}
+
+int heap_extract_min(int heap[], int heap_size) {
+    if (heap_size < 1) {
+        printf("error: heap underflow");
+    }
+    int min = heap[0];
+    heap[0] = heap[heap_size - 1];
+    heap_size = heap_size - 1;
+    min_heapify(heap, 0, heap_size);
+    return min;
+}
+
+
 
 /**
  * inplace swap
