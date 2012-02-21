@@ -25,6 +25,7 @@
  *
  ******************************************************************************/
 #include <stdio.h>
+#include <limits.h>
 #define MAXLEN 10
 
 void swap(int *a, int *b);
@@ -41,6 +42,10 @@ int heap_maximum(int heap[]);
 int heap_minimum(int heap[]);
 int heap_extract_max(int heap[], int heap_size);
 int heap_extract_min(int heap[], int heap_size);
+void heap_increase_key(int heap[], int i, int key);
+void heap_decrease_key(int heap[], int i, int key);
+void max_heap_insert(int heap[], int key, int heap_size);
+void min_heap_insert(int heap[], int key, int heap_size);
 /**
  * given a node with index i, return the index of its parent
  */
@@ -213,6 +218,52 @@ int heap_extract_min(int heap[], int heap_size) {
     return min;
 }
 
+/**
+ * increase the key of i
+ * runs in O(lg n) time
+ */
+void heap_increase_key(int heap[], int i, int key) {
+    if (key < heap[i]) {
+        printf("error: new key is smaller than current key");
+    }
+    heap[i] = key;
+    int parent_index = parent(i);
+    while (i > 0 && heap[parent_index] < heap[i]) {
+        swap(&heap[parent_index], &heap[i]);
+        i  = parent_index;
+    }
+}
+
+
+/**
+ * decrease the key of i
+ * runs in O(lg n) time
+ */
+void heap_decrease_key(int heap[], int i, int key) {
+    if (key > heap[i]) {
+        printf("error: new key is larger than current key");
+    }
+    heap[i] = key;
+    int parent_index = parent(i);
+    while (i > 0 && heap[parent_index] > heap[i]) {
+        swap(&heap[parent_index], &heap[i]);
+        i  = parent_index;
+    }
+}
+
+
+
+void max_heap_insert(int heap[], int key, int heap_size) {
+    heap[heap_size] = INT_MIN;
+    heap_increase_key(heap, heap_size, key);
+    heap_size += 1;
+}
+
+void min_heap_insert(int heap[], int key, int heap_size) {
+    heap[heap_size] = INT_MAX;
+    heap_decrease_key(heap, heap_size, key);
+    heap_size += 1;
+}
 
 
 /**
