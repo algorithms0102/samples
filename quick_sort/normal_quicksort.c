@@ -37,18 +37,18 @@ int partition(int array[], int p, int q) {
 }
 
 
+int a[10000000];
 int main (int argc, const char * argv[])
 {
+    int n = 0;
+    int i = 0;
+    while (scanf("%d", &a[n]) != EOF)
+        n++;
 
-    int array[100];
-    for (int i = 0; i < 100; i++) {
-        array[i] = 100 - i;
-    }
-    quick_sort(array, 0, 99);
-    for ( int i = 0; i < 100; i++) {
-        printf("%d ", array[i]);
-    }
+    quick_sort(a, 0, n-1);
 
-    printf("Hello, World!\n");
+    for (i = 0; i < n; i++)
+        printf("%d\n", a[i]);
+
     return 0;
 }

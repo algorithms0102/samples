@@ -10,12 +10,28 @@ int quick_sort(int array[], int p, int r);
 int partition(int array[], int p, int q);
 int median(int array[], int p, int q);
 void swap(int *a, int *b); 
+int insertion_sort(int array[], int n);
+int insertion_sort(int array[], int n) {
+    for (int j = 1; j < n; j++) {
+        int key = array[j];
+        int i = j - 1;
+        while (i >=0 && array[i] > key) {
+            array[i + 1] = array[i];
+            i--;
+        }
+        array[i + 1] = key;
+    }
+    return 0;
+}
+
 
 int quick_sort(int array[], int p, int r) {
-    if (p < r) {
+    if (p + 20 < r) {
         int q = partition(array, p, r);
         quick_sort(array, p, q-1);
         quick_sort(array, q+1, r);
+    } else {
+        insertion_sort(array + p, r - p + 1); 
     }
     return 0;
 }
@@ -60,27 +76,20 @@ void swap(int *a, int *b) {
 }
 
 
+int a[10000000];
 
 int main (int argc, const char * argv[])
 {
 
-    int array[100];
-    for (int i = 0; i < 100; i++) {
-        array[i] = 100 - i;
-    }
+    int n = 0;
+    int i = 0;
+    while (scanf("%d", &a[n]) != EOF)
+        n++;
 
-    for ( int i = 0; i < 100; i++) {
-        printf("%d ", array[i]);
-    }
+    quick_sort(a, 0, n-1);
 
-    printf("Hello, World!\n");
+    for (i = 0; i < n; i++)
+        printf("%d\n", a[i]);
 
-
-    quick_sort(array, 0, 99);
-    for ( int i = 0; i < 100; i++) {
-        printf("%d ", array[i]);
-    }
-
-    printf("Hello, World!\n");
     return 0;
 }
