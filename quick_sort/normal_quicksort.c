@@ -6,6 +6,7 @@
 //
 
 #include <stdio.h>
+#include <time.h>
 int quick_sort(int array[], int p, int r);
 int partition(int array[], int p, int q);
 
@@ -45,10 +46,13 @@ int main (int argc, const char * argv[])
     while (scanf("%d", &a[n]) != EOF)
         n++;
 
+    int t1 = clock();
     quick_sort(a, 0, n-1);
+    int t2 = clock();
+    printf("%d\n",t2-t1);
 
-    for (i = 0; i < n; i++)
-        printf("%d\n", a[i]);
+    //for (i = 0; i < n; i++)
+     //   printf("%d\n", a[i]);
 
     return 0;
 }
